@@ -26,7 +26,7 @@ export default class SwapiService {
         return this._transformPerson(person);
     }
 
-    _transformPerson({ url, name, gender, birthYear, eyeColor }) {
+    _transformPerson = ({ url, name, gender, birthYear, eyeColor }) => {
         return {
             id: this._extractId(url),
             name,
@@ -46,7 +46,7 @@ export default class SwapiService {
         return this._transformPlanet(planet);
     }
 
-    _transformPlanet({ url, name, population, rotation_period, diameter }) {
+    _transformPlanet = ({ url, name, population, rotation_period, diameter }) => {
         return {
             id: this._extractId(url),
             name,
@@ -66,7 +66,7 @@ export default class SwapiService {
         return this._transformStarship(starship);
     }
 
-    _transformStarship({ url, name, model, manufacturer, costInCredits, length, crew, passengers, cargoCapacity }) {
+    _transformStarship = ({ url, name, model, manufacturer, costInCredits, length, crew, passengers, cargoCapacity }) => {
         return {
             id: this._extractId(url),
             name,
