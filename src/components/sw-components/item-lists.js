@@ -1,15 +1,13 @@
 import React from 'react';
 import ItemList from '../item-list';
-import {withData, withSwapiService} from '../hoc-helpers';
-
-const withChildFunction = (fn) => (Wrapped) => (
-    (props) => <Wrapped {...props}>{fn}</Wrapped>
-);
+import {compose, withChildFunction, withData, withSwapiService} from '../hoc-helpers';
 
 const createList = (props, label) => (
-    withSwapiService(props)(
-        withData(withChildFunction(label)(ItemList))
-    )
+    compose(
+        withSwapiService(props),
+        withData,
+        withChildFunction(label)
+    )(ItemList)
 );
 
 const mapMethodsToProps = (data) => ({ getData: data });
