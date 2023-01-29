@@ -5,6 +5,10 @@ import ErrorIndicator from "../error-indicator";
 import './random-planet.css';
 
 export default class RandomPlanet extends Component {
+    static defaultProps = {
+        updateInterval: 3000
+    };
+
     state = {
         planet: {},
         loading: true,
@@ -12,8 +16,9 @@ export default class RandomPlanet extends Component {
     }
 
     componentDidMount() {
+        const {updateInterval} = this.props;
         this.updatePlanet();
-        this.interval = setInterval(this.updatePlanet, 2000);
+        this.interval = setInterval(this.updatePlanet, updateInterval);
     }
 
     componentWillUnmount() {
