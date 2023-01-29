@@ -11,17 +11,19 @@ const WithData = (View) => {
         };
 
         update() {
+            this.setState({
+                loading: true,
+                error: false
+            })
             this.props.getData()
                 .then((data) => {
                     this.setState({
                         data,
-                        loading: false,
-                        error: false
+                        loading: false
                     });
                 })
                 .catch(() => {
                     this.setState({
-                        loading: false,
                         error: true
                     })
                 });
