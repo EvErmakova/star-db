@@ -18,9 +18,7 @@ export default class PlanetsPage extends Component {
         const { selectedItem } = this.state;
 
         const itemList = (
-            <PlanetList onItemSelected={ this.onItemSelected }>
-                { (i) => i.name }
-            </PlanetList>
+            <PlanetList onItemSelected={ this.onItemSelected }></PlanetList>
         );
 
         const itemDetails = (
