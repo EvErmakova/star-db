@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import * as PropTypes from "prop-types";
 import Spinner from "../spinner";
 
 import './item-details.css';
@@ -13,6 +14,12 @@ export const Record = ({ item, field, label }) => {
 };
 
 export default class ItemDetails extends Component {
+    static propTypes = {
+        itemId: PropTypes.string,
+        getData: PropTypes.func.isRequired,
+        getImageUrl: PropTypes.func.isRequired
+    };
+
     state = {
         item: null,
         image: null,
