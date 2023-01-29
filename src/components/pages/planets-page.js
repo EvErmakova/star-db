@@ -1,39 +1,17 @@
-import React, { Component } from 'react';
-import ErrorBoundry from "../error-boundry";
+import React from 'react';
+import {withRouter} from "react-router-dom";
 import Row from "../row";
 import {PlanetDetails, PlanetList} from "../sw-components";
 
-export default class PlanetsPage extends Component {
-    state = {
-        selectedItem: null,
-    };
+const PlanetsPage = ({history, match}) => {
+    const {id} = match.params;
 
-    onItemSelected = (id) => {
-        this.setState({
-            selectedItem: id
-        })
-    }
+    return (
+        <Row
+            left={<PlanetList onItemSelected={(itemId) => history.push(itemId)} />}
+            right={<PlanetDetails itemId={id} />}
+        />
+    );
+};
 
-    render() {
-        const { selectedItem } = this.state;
-
-        const itemList = (
-            <PlanetList onItemSelected={ this.onItemSelected }></PlanetList>
-        );
-
-        const itemDetails = (
-            <ErrorBoundry>
-                <PlanetDetails itemId={selectedItem}></PlanetDetails>
-            </ErrorBoundry>
-        );
-
-        return (
-            <ErrorBoundry>
-                <Row
-                    left={itemList}
-                    right={itemDetails}
-                />
-            </ErrorBoundry>
-        );
-    }
-}
+export default withRouter(PlanetsPage);

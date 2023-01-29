@@ -23,7 +23,7 @@ export default class ItemDetails extends Component {
     state = {
         item: null,
         image: null,
-        loading: false
+        loading: true
     };
 
     componentDidMount() {
@@ -45,6 +45,9 @@ export default class ItemDetails extends Component {
     updateItem() {
         const { itemId, getData, getImageUrl } = this.props;
         if (!itemId) {
+            this.setState({
+                loading: false
+            });
             return;
         }
 

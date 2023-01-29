@@ -6,15 +6,17 @@
 .header ul li {
   list-style: none;
   margin: 0;
+  padding: 0;
+}
+
+.header ul a {
+  display: block;
   padding: .5rem 1rem;
   border-radius: 3px;
 }
 
-.header ul li:hover {
+.header ul a:hover {
   background-color: #444;
-}
-
-.header a:hover {
   text-decoration: none;
 }
 
@@ -24,6 +26,7 @@
 
 .header h3 a:hover {
   color: #00bc8c;
+  text-decoration: none;
 }
 
 .header .btn {
