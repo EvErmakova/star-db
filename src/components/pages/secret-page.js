@@ -10,7 +10,7 @@ const SecretPage = ({isLoggedIn}) => {
         );
     }
 
-    return <Redirect to='/login' />;
+    return <Redirect to='/star-db/login' />;
 };
 
 export default SecretPage;
