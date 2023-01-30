@@ -34,17 +34,17 @@ export default class App extends Component {
                             <RandomPlanet swapiService={swapiService} />
 
                             <Switch>
-                                <Route path="/" exact render={() => <h2 className="text-center">Welcome to StarDB!</h2>} />
-                                <Route path="/people/:id?" component={PeoplePage} />
-                                <Route path="/planets/:id?" component={PlanetsPage} />
-                                <Route path="/starships" exact component={StarshipsPage} />
-                                <Route path="/starships/:id"
+                                <Route path="/star-db/" exact render={() => <h2 className="text-center">Welcome to StarDB!</h2>} />
+                                <Route path="/star-db/people/:id?" component={PeoplePage} />
+                                <Route path="/star-db/planets/:id?" component={PlanetsPage} />
+                                <Route path="/star-db/starships" exact component={StarshipsPage} />
+                                <Route path="/star-db/starships/:id"
                                        render={({match}) => {
                                            const { id } = match.params;
                                            return <StarshipDetails itemId={id} />;
                                        }}
                                 />
-                                <Route path="/login"
+                                <Route path="/star-db/login"
                                        render={() => (
                                            <LoginPage
                                                isLoggedIn={isLoggedIn}
@@ -52,7 +52,7 @@ export default class App extends Component {
                                            />
                                        )}
                                 />
-                                <Route path="/secret"
+                                <Route path="/star-db/secret"
                                        render={() => <SecretPage isLoggedIn={isLoggedIn} />}
                                 />
 
